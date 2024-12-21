@@ -1,0 +1,35 @@
+.weather-card {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #317cdd;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    font-size: 14px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: #333;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    margin: 10px 0;
+  }

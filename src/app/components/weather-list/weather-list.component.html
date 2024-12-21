@@ -1,0 +1,10 @@
+<div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+<div *ngFor="let city of filteredCities">
+    <h3>{{ city.city }}</h3>
+    <ul>
+        <li *ngFor="let forecast of city.forecast">
+            Date: {{ forecast.date }}, Temp: {{ getTemperature(forecast) }} °C
+        </li>
+    </ul>
+</div>
