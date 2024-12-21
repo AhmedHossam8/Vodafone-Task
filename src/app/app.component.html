@@ -1,6 +1,10 @@
 <div class="weather-app-container">
-  <app-search-bar (citySearch)="onCitySearch($event)"></app-search-bar>
-  <app-date-picker (dateFilter)="onDateFilter($event)"></app-date-picker>
-  <app-unit-toggle (unitChange)="onUnitChange($event)"></app-unit-toggle>
-  <app-weather-list></app-weather-list>
+  <div class="filter-container">
+    <app-search-bar (citySearch)="onCitySearch($event)"></app-search-bar>
+    <app-date-picker (dateFilter)="onDateFilter($event)"></app-date-picker>
+    <app-unit-toggle (unitChange)="onUnitChange($event)"></app-unit-toggle>
+  </div>
+  <div class="weather-list">
+    <app-weather-list></app-weather-list>
+  </div>
 </div>

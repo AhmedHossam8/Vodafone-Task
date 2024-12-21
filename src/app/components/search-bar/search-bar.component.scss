@@ -1,6 +1,7 @@
 .search-bar {
     display: flex;
     align-items: center;
+    flex-grow: 1;
     gap: 10px;
     background-color: rgba(255, 255, 255, 0.8);
     padding: 10px 15px;
@@ -14,18 +15,4 @@
     font-size: 14px;
     border: 1px solid #ccc;
     border-radius: 6px;
-}
-
-.search-button {
-    padding: 10px 20px;
-    background-color: #3f86e3;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.search-button:hover {
-    background-color: #285b8c;
 }

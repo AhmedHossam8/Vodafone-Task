@@ -42,4 +42,10 @@ export class AppComponent {
     console.log('Unit Change Event:', selectedUnit);
     // You can implement unit change logic here if needed
   }
+
+  onFilter(): void {
+    // Trigger city search and date filter based on current inputs
+    this.onCitySearch(this.filter.search);
+    this.onDateFilter(this.filter.date);
+  }
 }

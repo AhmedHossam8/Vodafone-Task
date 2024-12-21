@@ -1,4 +1,3 @@
 <div class="date-picker">
-    <input type="date" [(ngModel)]="selectedDate" class="date-input" />
-    <button (click)="filterByDate()" class="filter-button">Filter</button>
+    <input type="date" [(ngModel)]="selectedDate" class="date-input" (ngModelChange)="filterByDate()" />
 </div>
