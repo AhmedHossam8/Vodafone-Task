@@ -1,13 +1,13 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { CommonModule } from '@angular/common';  // Import CommonModule
-import { FormsModule } from '@angular/forms';    // Import FormsModule
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-date-picker',
   standalone: true,
   templateUrl: './date-picker.component.html',
   styleUrls: ['./date-picker.component.scss'],
-  imports: [CommonModule, FormsModule],  // Add FormsModule here
+  imports: [CommonModule, FormsModule],
 })
 export class DatePickerComponent {
   @Output() dateFilter = new EventEmitter<string>();
@@ -15,7 +15,6 @@ export class DatePickerComponent {
 
   filterByDate(): void {
     if (this.selectedDate) {
-      console.log('Selected Date:', this.selectedDate);
       this.dateFilter.emit(this.selectedDate);
     }
   }

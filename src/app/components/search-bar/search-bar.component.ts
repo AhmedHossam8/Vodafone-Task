@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { FormsModule } from '@angular/forms';  // Import FormsModule
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-search-bar',
   standalone: true,
-  imports: [FormsModule],  // Add FormsModule here
+  imports: [FormsModule],
   templateUrl: './search-bar.component.html',
   styleUrls: ['./search-bar.component.scss'],
 })
@@ -14,7 +14,6 @@ export class SearchBarComponent {
 
   searchCity(): void {
     if (this.searchTerm.trim()) {
-      console.log('Search Term:', this.searchTerm); // Debug log
       this.citySearch.emit(this.searchTerm);
     }
   }

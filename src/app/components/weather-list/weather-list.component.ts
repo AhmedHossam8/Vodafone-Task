@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
 
@@ -21,6 +21,7 @@ export class WeatherListComponent implements OnInit {
   filteredCities: any[] = [];
   errorMessage: string = '';
   selectedUnit: string = 'Celsius'; // Default to Celsius
+  @Input() unit: string = 'Celsius';
 
   constructor(private apiService: ApiService) { }
 
@@ -32,7 +33,6 @@ export class WeatherListComponent implements OnInit {
   }
 
   applyFilters(filter: { search: string; date: string }): void {
-    // Apply city search filter
     let filteredBySearch = this.cities;
     if (filter.search) {
       filteredBySearch = this.cities.filter((city) =>
@@ -40,7 +40,7 @@ export class WeatherListComponent implements OnInit {
       );
     }
 
-    // Apply date filter
+    // date filter
     let filteredByDate = filteredBySearch;
     if (filter.date) {
       filteredByDate = filteredBySearch.map((city) => {
@@ -62,11 +62,17 @@ export class WeatherListComponent implements OnInit {
     }
   }
 
+  onUnitChange(selectedUnit: string): void {
+    this.selectedUnit = selectedUnit;
+  }
+
   getTemperature(forecast: Forecast): number {
-    if (this.selectedUnit === 'Celsius') {
-      return forecast.temperatureCelsius;
-    } else {
-      return forecast.temperatureFahrenheit;
-    }
+    return this.selectedUnit === 'Celsius'
+      ? forecast.temperatureCelsius
+      : forecast.temperatureFahrenheit;
+  }
+
+  getTemperatureSymbol(): string {
+    return this.selectedUnit === 'Celsius' ? '°C' : '°F';
   }
 }

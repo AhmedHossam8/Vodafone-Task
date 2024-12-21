@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-unit-toggle',
   standalone: true,
-  templateUrl: './unit-toggle.component.html',
-  styleUrls: ['./unit-toggle.component.scss'],
   imports: [FormsModule],
+  templateUrl: './unit-toggle.component.html',
+  styleUrls: ['./unit-toggle.component.scss']
 })
 export class UnitToggleComponent {
   @Output() unitChange = new EventEmitter<string>();

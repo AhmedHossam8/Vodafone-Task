@@ -3,6 +3,7 @@ import { WeatherListComponent } from './components/weather-list/weather-list.com
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { DatePickerComponent } from './components/date-picker/date-picker.component';
 import { UnitToggleComponent } from './components/unit-toggle/unit-toggle.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -11,13 +12,15 @@ import { UnitToggleComponent } from './components/unit-toggle/unit-toggle.compon
     SearchBarComponent,
     DatePickerComponent,
     UnitToggleComponent,
-    WeatherListComponent
+    WeatherListComponent,
+    FormsModule
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'weather-app';
+  selectedUnit: string = 'Celsius';
 
   @ViewChild(WeatherListComponent) weatherList!: WeatherListComponent;
 
@@ -27,20 +30,18 @@ export class AppComponent {
   };
 
   onCitySearch(searchTerm: string): void {
-    console.log('City search term:', searchTerm); // Debug log
-    this.filter.search = searchTerm;  // Store search filter
+    this.filter.search = searchTerm;
     this.weatherList.applyFilters(this.filter); // Pass filters to weather list component
   }
 
   onDateFilter(selectedDate: string): void {
-    console.log('Selected Date:', selectedDate); // Debug log
-    this.filter.date = selectedDate;  // Store date filter
-    this.weatherList.applyFilters(this.filter); // Pass filters to weather list component
+    this.filter.date = selectedDate;
+    this.weatherList.applyFilters(this.filter);
   }
 
   onUnitChange(selectedUnit: string): void {
-    console.log('Unit Change Event:', selectedUnit);
-    // You can implement unit change logic here if needed
+    this.selectedUnit = selectedUnit;
+    this.weatherList.onUnitChange(selectedUnit);
   }
 
   onFilter(): void {
